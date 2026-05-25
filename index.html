@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有限会社日章電気計装 | 山口県下松市の計装・電気工事</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #151d30;
+    --navy-mid: #1e2840;
+    --navy-light: #263354;
+    --gold: #c8a95a;
+    --gold-light: #e0c278;
+    --gold-dim: rgba(200,169,90,0.12);
+    --gray: #7a8fa8;
+    --gray-light: #a8bdd0;
+    --light: #f2f4f7;
+    --white: #ffffff;
+    --text: #151d30;
+    --body: #4a5568;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .header-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 76px;
+  }
+
+  .logo { display: flex; flex-direction: column; gap: 3px; }
+  .logo-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .logo-sub {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  nav { display: flex; gap: 28px; margin-left: auto; }
+  nav a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  nav a:hover { color: var(--gold); }
+
+  .header-cta {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 22px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .header-cta:hover { background: var(--gold-light); }
+
+  /* ========== HERO ========== */
+  .hero {
+    background: var(--navy);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 28px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200,169,90,0.06) 0%, transparent 70%),
+      repeating-linear-gradient(-45deg, transparent, transparent 48px, rgba(255,255,255,0.012) 48px, rgba(255,255,255,0.012) 49px);
+  }
+
+  .hero-ring {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,90,0.1);
+    pointer-events: none;
+  }
+  .hero-ring::before {
+    content: '';
+    position: absolute;
+    inset: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,90,0.07);
+  }
+  .hero-ring::after {
+    content: '';
+    position: absolute;
+    inset: 96px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,90,0.05);
+  }
+
+  .hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 680px;
+  }
+
+  .hero-left { display: flex; flex-direction: column; gap: 0; }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .hero-tag-bar { width: 32px; height: 2px; background: var(--gold); }
+  .hero-tag-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(30px, 3.8vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--gray-light);
+    line-height: 2;
+    margin-bottom: 44px;
+    max-width: 500px;
+  }
+
+  .hero-actions { display: flex; gap: 16px; align-items: center; margin-bottom: 56px; }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 32px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-size: 14px;
+    color: var(--gray-light);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold); }
+  .btn-ghost::after { content: '→'; }
+
+  .hero-stats {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 32px;
+  }
+
+  .hero-stat {
+    padding-right: 36px;
+    margin-right: 36px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+  .hero-stat-num {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stat-num span { font-size: 14px; color: var(--gold); margin-left: 2px; }
+  .hero-stat-label { font-size: 12px; color: var(--gray); letter-spacing: 0.04em; }
+
+
+
+  /* ========== SECTION COMMON ========== */
+  section { padding: 88px 28px; }
+
+  .section-inner { max-width: 1160px; margin: 0 auto; }
+
+  .section-header { margin-bottom: 56px; }
+
+  .section-en {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-en::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  .section-title-white { color: var(--white); }
+
+  /* ========== SERVICES ========== */
+  .services { background: var(--light); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(21,29,48,0.1); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .service-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.4; }
+  .service-card p { font-size: 14px; color: var(--body); line-height: 1.85; }
+
+  /* ========== STRENGTHS ========== */
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--light);
+  }
+
+  .strength-item {
+    background: var(--white);
+    padding: 40px 36px;
+    display: flex;
+    gap: 24px;
+    transition: background 0.2s;
+  }
+  .strength-item:hover { background: #fafbfc; }
+
+  .strength-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--light);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 52px;
+  }
+
+  .strength-body h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .strength-body p { font-size: 14px; color: var(--body); line-height: 1.85; }
+
+  /* ========== WORKS ========== */
+  .works { background: var(--navy); }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .work-card {
+    background: var(--navy-mid);
+    padding: 32px 28px;
+    border: 1px solid rgba(200,169,90,0.1);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .work-card:hover { border-color: rgba(200,169,90,0.35); background: var(--navy-light); }
+
+  .work-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    padding: 3px 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .work-card h3 { color: var(--white); font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.5; }
+  .work-card p { color: var(--gray); font-size: 13px; line-height: 1.85; }
+
+  .work-area {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.04em;
+  }
+  .work-area::before { content: '📍'; font-size: 11px; }
+
+  /* ========== ABOUT ========== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .about-lead {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .about-text p { font-size: 15px; color: var(--body); line-height: 2; margin-bottom: 16px; }
+
+  .about-info { background: var(--navy); padding: 0; }
+
+  .info-row {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label {
+    width: 110px;
+    background: rgba(200,169,90,0.08);
+    padding: 16px 20px;
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+  }
+  .info-value { padding: 16px 20px; color: var(--gray-light); }
+
+  /* ========== FLOW ========== */
+  .flow { background: var(--light); }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+  }
+
+  .flow-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .flow-step { text-align: center; padding: 0 12px; }
+
+  .flow-num {
+    width: 56px; height: 56px;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    border: 2px solid var(--gold);
+    position: relative; z-index: 1;
+    font-family: 'Noto Serif JP', serif;
+  }
+
+  .flow-step h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .flow-step p { font-size: 13px; color: var(--body); line-height: 1.7; }
+
+  /* ========== CONTACT ========== */
+  .contact { background: var(--navy); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-left p {
+    color: var(--gray-light);
+    font-size: 15px;
+    line-height: 2;
+    margin-top: 20px;
+    margin-bottom: 36px;
+  }
+
+  .contact-tel {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .contact-tel-label { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+  .contact-tel-num { font-size: 32px; font-weight: 700; color: var(--white); letter-spacing: 0.05em; }
+  .contact-tel-note { font-size: 12px; color: var(--gray); }
+
+  .contact-right { display: flex; flex-direction: column; gap: 3px; }
+
+  .contact-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(200,169,90,0.12);
+    padding: 24px 28px;
+    transition: border-color 0.2s;
+  }
+  .contact-card:hover { border-color: rgba(200,169,90,0.3); }
+  .contact-card-label { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 8px; }
+  .contact-card-value { font-size: 20px; font-weight: 700; color: var(--white); }
+  .contact-card-note { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #080c14;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(200,169,90,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.06em;
+  }
+
+  footer p { color: var(--gray); font-size: 12px; letter-spacing: 0.05em; }
+
+  /* ========== BACK TO TOP ========== */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 48px; height: 48px;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 300;
+    transform: translateY(8px);
+  }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .back-to-top:hover { background: var(--gold-light); }
+  .back-to-top svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ========== DEMO BADGE ========== */
+  .demo-badge {
+    position: fixed;
+    bottom: 28px; left: 28px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 8px 16px;
+    letter-spacing: 0.1em;
+    z-index: 999;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+
+  /* ========== SCROLL REVEAL ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+
+  /* ========== MOBILE ========== */
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .works-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .flow-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .flow-steps::before { display: none; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 64px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    .header-cta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-main">有限会社 日章電気計装</span>
+      <span class="logo-sub">Nissho Denki Keiso Co., Ltd.</span>
+    </div>
+    <nav>
+      <a href="#services">事業内容</a>
+      <a href="#works">施工実績</a>
+      <a href="#about">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <a class="header-cta" href="#contact">無料相談はこちら</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="hero-tag-bar"></span>
+        <span class="hero-tag-text">山口県下松市 ／ 計装・電気工事専門</span>
+      </div>
+      <h1>プラントを止めない。<br><em>確かな技術</em>と、<br>誠実な仕事。</h1>
+      <p class="hero-desc">工業炉・プラント設備・各種建築物の計装工事を中心に、山口県内から九州・関東まで幅広く対応。創業以来、現場に根ざした施工で産業インフラを支え続けています。</p>
+      <div class="hero-actions">
+        <a class="btn-gold" href="#contact">無料でご相談・お見積り</a>
+        <a class="btn-ghost" href="#works">施工実績を見る</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">30<span>年以上</span></div>
+          <div class="hero-stat-label">豊富な施工実績</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">14<span>名</span></div>
+          <div class="hero-stat-label">有資格技術者</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">全国<span>対応</span></div>
+          <div class="hero-stat-label">九州〜関東</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-en">Services</div>
+      <h2 class="section-title">事業内容</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>計装工事</h3>
+        <p>工業炉・プラント設備・建築物の自動制御装置など、計装工事全般を手掛けています。精密な制御システムの設計から施工まで一貫対応。</p>
+      </div>
+      <div class="service-card">
+        <h3>電気工事</h3>
+        <p>発電設備工事・引込線工事・変電設備工事・構内電気設備工事など各種電気工事に対応。太陽光発電工事の実績も多数。</p>
+      </div>
+      <div class="service-card">
+        <h3>クレーン電気計装工事</h3>
+        <p>大型クレーンから小型クレーンまで、設備改修・新設工事における電気計装工事を安全かつ確実に施工します。</p>
+      </div>
+      <div class="service-card">
+        <h3>工業炉計装工事</h3>
+        <p>モノづくりの根幹を担う工業炉の電気計装設備工事。金型・金属部品製造設備の安定稼働を技術力で支えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-en">Strengths</div>
+      <h2 class="section-title">選ばれる理由</h2>
+    </div>
+    <div class="strengths-grid">
+      <div class="strength-item reveal">
+        <div class="strength-num">01</div>
+        <div class="strength-body">
+          <h3>豊富な現場経験</h3>
+          <p>工業炉・コンプレッサーユニット・プラント設備など、多様な計装工事の実績を持つ技術者が対応。難しい現場でも確実に仕上げます。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal reveal-delay-1">
+        <div class="strength-num">02</div>
+        <div class="strength-body">
+          <h3>広域対応力</h3>
+          <p>山口県内を拠点に、九州から関東まで対応実績あり。遠方の現場でも安心してお任せいただけます。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal reveal-delay-2">
+        <div class="strength-num">03</div>
+        <div class="strength-body">
+          <h3>若手育成への注力</h3>
+          <p>資格取得・技術講習を積極的に支援。経験豊富な職人から若手へ技術を継承し、長期的な品質維持を実現しています。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal reveal-delay-3">
+        <div class="strength-num">04</div>
+        <div class="strength-body">
+          <h3>安全最優先の施工</h3>
+          <p>社会保険・労災保険完備、建設業許可取得済み。法令遵守と安全管理を徹底した施工体制を整えています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-en">Works</div>
+      <h2 class="section-title section-title-white">施工実績</h2>
+    </div>
+    <div class="works-grid">
+      <div class="work-card reveal">
+        <div class="work-card-img" style="height:180px;overflow:hidden;margin:-32px -28px 24px;"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80&fit=crop" alt="計装工事" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.85);"></div>
+        <div class="work-tag">計装工事</div>
+        <h3>石油化学プラント 計装制御設備 更新工事</h3>
+        <p>制御盤更新から現場計装まで一括施工。工期厳守・安全管理を徹底した施工で完納。</p>
+        <div class="work-area">山口県 周南市</div>
+      </div>
+      <div class="work-card reveal reveal-delay-1">
+        <div class="work-card-img" style="height:180px;overflow:hidden;margin:-32px -28px 24px;"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&fit=crop" alt="太陽光発電工事" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.85);"></div>
+        <div class="work-tag">電気工事</div>
+        <h3>製造業工場 屋根設置型 太陽光発電設備 設置工事</h3>
+        <p>200kW規模の設置工事。電気工事から系統連系まで全工程に一貫対応。</p>
+        <div class="work-area">山口県 下松市</div>
+      </div>
+      <div class="work-card reveal reveal-delay-2">
+        <div class="work-card-img" style="height:180px;overflow:hidden;margin:-32px -28px 24px;"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop" alt="クレーン工事" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.85);"></div>
+        <div class="work-tag">クレーン計装</div>
+        <h3>製鉄所クレーン 電気計装 近代化改修工事</h3>
+        <p>既存クレーンの制御システム近代化。停止期間を最小化する施工計画を立案・実施。</p>
+        <div class="work-area">九州エリア</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-en">Process</div>
+      <h2 class="section-title">ご依頼の流れ</h2>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="flow-num">01</div>
+        <h4>お問い合わせ</h4>
+        <p>電話またはフォームでお気軽に</p>
+      </div>
+      <div class="flow-step reveal reveal-delay-1">
+        <div class="flow-num">02</div>
+        <h4>ヒアリング</h4>
+        <p>工事内容・現場状況を確認</p>
+      </div>
+      <div class="flow-step reveal reveal-delay-2">
+        <div class="flow-num">03</div>
+        <h4>現地調査</h4>
+        <p>無料で現地を確認します</p>
+      </div>
+      <div class="flow-step reveal reveal-delay-3">
+        <div class="flow-num">04</div>
+        <h4>お見積り提出</h4>
+        <p>明確な費用でご提案</p>
+      </div>
+      <div class="flow-step reveal reveal-delay-3">
+        <div class="flow-num">05</div>
+        <h4>施工・完工</h4>
+        <p>安全最優先で確実に仕上げ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-en">About</div>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p class="about-lead">現場を知る技術者が、<br>誠実に仕上げる。</p>
+        <p>有限会社日章電気計装は、山口県下松市を拠点に計装工事・電気工事を手掛ける専門会社です。工業炉や環境実験工事等の計装工事を中心に、プラント設備・各種建築物の自動制御装置まで幅広く対応しています。</p>
+        <p>山口県内のみならず、九州から関東までの施工実績を持ちます。安全を最優先に、誠実な仕事で地域の産業インフラを支え続けています。</p>
+      </div>
+      <div class="about-info">
+        <div class="info-row">
+          <div class="info-label">社名</div>
+          <div class="info-value">有限会社 日章電気計装</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">所在地</div>
+          <div class="info-value">山口県下松市瑞穂町3丁目12-14</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">電話番号</div>
+          <div class="info-value">0833-44-3337</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">資本金</div>
+          <div class="info-value">300万円</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">従業員数</div>
+          <div class="info-value">14名</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">許認可</div>
+          <div class="info-value">建設業許可・社会保険・労災保険完備</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS MAP -->
+<section style="padding: 0 28px 88px;">
+  <div class="section-inner">
+    <!-- MAP -->
+    <div class="reveal" style="margin-top: 56px;">
+      <div class="section-en" style="margin-bottom:16px;">Access</div>
+      <div style="position:relative; overflow:hidden; border:1px solid rgba(200,169,90,0.2);">
+        <iframe
+          src="https://maps.google.com/maps?q=%E5%B1%B1%E5%8F%A3%E7%9C%8C%E4%B8%8B%E6%9D%BE%E5%B8%82%E7%91%9E%E7%A9%82%E7%94%BA3%E4%B8%81%E7%9B%AE12-14&output=embed&hl=ja&z=16"
+          width="100%"
+          height="280"
+          style="border:0; display:block; filter:grayscale(20%) contrast(1.05);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div style="position:absolute;inset:0;pointer-events:none;border:2px solid rgba(200,169,90,0.15);"></div>
+      </div>
+      <div style="margin-top:12px; font-size:13px; color:var(--gray); letter-spacing:0.04em;">
+        📍 山口県下松市瑞穂町3丁目12-14 ／ JR下松駅より車で約5分
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-en">Contact</div>
+        <h2 class="section-title section-title-white">お問い合わせ</h2>
+        <p>計装工事・電気工事のご依頼・ご相談はお気軽にどうぞ。現地調査・お見積りは無料で対応しております。</p>
+        <div class="contact-tel">
+          <span class="contact-tel-label">Telephone</span>
+          <span class="contact-tel-num">0833-44-3337</span>
+          <span class="contact-tel-note">平日 8:00〜17:00</span>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-card">
+          <div class="contact-card-label">TEL — お電話でのお問い合わせ</div>
+          <div class="contact-card-value">0833-44-3337</div>
+          <div class="contact-card-note">平日 8:00〜17:00 受付</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-label">FAX — ファクスでのご依頼</div>
+          <div class="contact-card-value">0833-44-XXXX</div>
+          <div class="contact-card-note">24時間受付</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-label">ACCESS — 所在地</div>
+          <div class="contact-card-value" style="font-size:15px;font-weight:500;">山口県下松市瑞穂町3丁目12-14</div>
+          <div class="contact-card-note">お気軽にご来社ください</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">有限会社 日章電気計装</span>
+  <p>© 2025 Nissho Denki Keiso Co., Ltd. All Rights Reserved.</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="トップへ戻る">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<div class="demo-badge">DEMO — Pattern 1 v2</div>
+
+<script>
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
